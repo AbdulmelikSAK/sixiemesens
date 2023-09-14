@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        title: ["Dancing Script", "cursive"],
+        paragraph: ["Poppins", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
