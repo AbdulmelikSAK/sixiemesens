@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Laissez-vous emporter par une expérience culinaire Provençale exceptionnelle au 6ème Sens à Rillon. Réservez dès aujourd'hui.">
     <link rel="stylesheet" href="style.css" type="text/css" async />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <!-- Alpine Plugins -->
     <script
       defer
@@ -17,6 +21,7 @@
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+
     <style>
       [x-cloak] { display: none !important; }
     </style>
@@ -31,29 +36,29 @@
       <!-- This is navigation header -->
       <div class="z-50 relative">
         <div
-          :class="{ 'text-green-100' : tab === 'home' }"
-          class="flex items-center px-6 py-6 space-x-4 md:px-12 xl:px-24  xl:space-x-8 text-bold font-paragraph font-medium text-base"
+          :class="tab === 'home' ? 'text-green-100' : 'text-green-950'"
+          class="flex items-center px-6 py-6 space-x-1 md:px-12 md:space-x-2 xl:px-24  xl:space-x-4 text-bold font-paragraph font-medium text-base"
         >
           <a
             href="#"
-            :class="{ 'text-green-100 bg-green-600 py-1 px-2 rounded' : tab === 'restaurant' }"
-            class="flex justify-center items-center"
+            :class="tab === 'restaurant' ? 'text-green-100 bg-green-600' : 'hover:text-green-700'"
+            class="flex justify-center items-center transition ease-out duration-300 py-1 px-1 rounded md:px-2"
             @click.prevent="tab = 'restaurant'; window.location.hash = 'restaurant'"
           >
             Restaurant
           </a>
           <a
             href="#"
-            :class="{ 'text-green-100 bg-green-600 py-1 px-2 rounded' : tab === 'menu' }"
-            class="flex justify-center items-center"
+            :class="tab === 'menu' ? 'text-green-100 bg-green-600' : 'hover:text-green-700'"
+            class="flex justify-center items-center transition ease-out duration-300 py-1 px-1 rounded md:px-2"
             @click.prevent="tab = 'menu'; window.location.hash = 'menu'"
           >
             Carte menu
           </a>
           <a
             href="#"
-            :class="{ 'text-green-100 bg-green-600 py-1 px-2 rounded' : tab === 'booking' }"
-            class="flex justify-center items-center"
+            :class="tab === 'booking' ? 'text-green-100 bg-green-600' : 'hover:text-green-700'"
+            class="flex justify-center items-center transition ease-out duration-300 py-1 px-1 rounded md:px-2"
             @click.prevent="tab = 'booking'; window.location.hash = 'booking'"
           >
             Réservation
@@ -63,7 +68,7 @@
 
       <!-- This is home page -->
       <div x-cloak x-show="tab === 'home'">
-        <div class="relative z-10 xl:-mt-20 text-center text-purple-100">
+        <div class="relative z-10 text-center text-purple-100 xl:-mt-20">
           <div class="flex justify-center">
             <svg
               class="w-40 h-40"
@@ -101,7 +106,7 @@
               </defs>
             </svg>
           </div>
-          <div>
+          <div class="px-6 md:px-12 xl:px-24">
             <h1 class="flex flex-col space-y-1">
               <span class="font-title text-4xl font-bold text-purple-100">
                 Bienvenue au 6ème Sens
@@ -122,8 +127,8 @@
 
       <!-- This is restaurant page -->
         <div x-cloak x-show="tab === 'restaurant'" class="relative z-10">
-          <div class="flex justify-center xl:-mt-20">
-            <img class="w-40 h-40 xl:w-80 xl:h-80" src="./images/logo.webp" alt="">
+          <div class="flex justify-center xl:-mt-12">
+            <img class="w-40 h-40" src="./images/logo.webp" alt="">
           </div>
           <div class="relative px-6 md:px-12 xl:px-24">
             <div class="hidden md:block md:absolute md:z-0 xl:top-0 md:w-[15%] md:transform md:-translate-y-3/4 md:right-[12%]">
@@ -250,8 +255,8 @@
       </div>
       <!-- This is menu page -->
       <div x-cloak x-show="tab === 'menu'" class="px-6 xl:px-0 relative z-20">
-        <div class="flex justify-center xl:-mt-28">
-          <img class="w-40 h-40 xl:w-80 xl:h-80" src="./images/logo.webp" alt="">
+        <div class="flex justify-center xl:-mt-12">
+          <img class="w-40 h-40" src="./images/logo.webp" alt="">
         </div>
         <div class="max-w-2xl mx-auto text-center xl:-mt-8">
           <h2 class="flex flex-col space-y-3">
@@ -394,8 +399,8 @@
           <div class="hidden xl:block xl:absolute xl:top-full xl:left-0 xl:transform xl:-rotate-12">
             <img class="rounded-full" src="./images/flower_2.webp" alt="">
           </div>
-          <div class="flex justify-center xl:-mt-28">
-            <img class="w-40 h-40 xl:w-80 xl:h-80" src="./images/logo.webp" alt="">
+          <div class="flex justify-center xl:-mt-12">
+            <img class="w-40 h-40" src="./images/logo.webp" alt="">
           </div>
           <div class="max-w-prose mx-auto xl:mx-0">
             <h2 class="font-title text-5xl tracking-wide font-bold text-green-950">
